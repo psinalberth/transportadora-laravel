@@ -11,10 +11,12 @@ class Cliente extends Model {
     
 	protected $table = 'clientes';
 
+	protected $hidden = ['id', 'endereco_id'];
+
     protected $fillable = ['nome', 'numero', 'complemento', 'telefone', 'endereco_id'];
 
     public function endereco() {
-    	return $this->hasOne('App\Http\Model\Endereco');
+    	return $this->belongsTo('App\Http\Model\Endereco');
     }
 
     public function fretes() {

@@ -11,7 +11,7 @@ class ClienteRequest extends Request {
 	 * @return bool
 	 */
 	public function authorize() {
-		return false;
+		return true;
 	}
 
 	/**
@@ -21,7 +21,9 @@ class ClienteRequest extends Request {
 	 */
 	public function rules() {
 		return [
-			//
+			'nome' => 'required',
+			'numero' => 'required',
+			'endereco_id' => 'required'
 		];
 	}
 }

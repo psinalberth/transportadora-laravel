@@ -11,9 +11,12 @@
 |
  */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
 	return view('welcome');
-});
+	Route::get('/', ['uses' => 'WelcomeCotroller@index']);
+});*/
+
+Route::get('/', ['uses' => 'WelcomeController@index']);
 
 Route::group(['prefix' => 'api'], function () {
 
@@ -21,5 +24,12 @@ Route::group(['prefix' => 'api'], function () {
 
 			Route::get('', ['uses' => 'ClientesController@index']);
 
+			Route::post('', ['uses' => 'ClientesController@store']);
+
+			Route::get('/{id}', ['uses' => 'ClientesController@editar']);
+
+			Route::get('/teste', ['uses' => 'ClientesController@dummy']);
+
+			Route::get('/aa', ['uses' => 'ClientesController@teste']);
 		});
 });

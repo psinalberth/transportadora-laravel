@@ -2,6 +2,28 @@
 
 @section('content')
 <div class="row">
+	
+
+	<div class="row">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Cidade</th>
+					<th>Telefone</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					@foreach($clientes as $cliente)
+						<td><a href="#"  data-toggle="modal" data-target="#modal-dialog">{{ $cliente->nome }}</a></td>
+						<td>{{ $cliente->endereco->cidade }}</td>
+						<td>{{ $cliente->telefone }}</td>
+					@endforeach
+				</tr>
+			</tbody>
+		</table>
+	</div>
 
 	<div class="row">
 		<h3>AAAS</h3>
@@ -19,11 +41,13 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         	<span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title" id="myModalLabel" style="color:lightgreen; font-size:1.7em; font-weight: bold">Novo Cliente</h4>
+        <h4 class="modal-title" id="myModalLabel" style="color:lightgreen; font-size:1.7em; font-weight: bold">
+        	{{$cliente->id != null ? 'Editar Cliente' : 'Novo Cliente'}}
+        </h4>
       </div>
       <div class="modal-body">
 		
-		{!! Form::open() !!}
+		{!! Form::model($cliente) !!}
 
 			<div class="form-group">
 				{!! Form::label('nome', 'Nome:') !!}
@@ -34,14 +58,36 @@
 				<div class="col-sm-3">
 					<div class="form-group">
 						{!! Form::label('cep', 'CEP:') !!}
-						{!! Form::text('cep', null, ['class' => 'form-control', 'onkeyup' => 'foo()']) !!}
+						{!! Form::text('endereco[cep]', null, ['class' => 'form-control', 'onkeyup' => 'foo()', 'maxlength' => 8]) !!}
 					</div>
 					<script>
 
 						function foo() {
 
-							if (document.getElementById("cep").value.length == 8)
-								alert(document.getElementById('cep'));
+							if ($('#cep').val().length == 8) {
+
+								$.ajax({
+									type: 'GET',
+									dataType: 'json',
+									url: 'https://viacep.com.br/ws/' + $('#cep').val() + '/json/',
+									data: '',
+									success: function(result, success) {
+										
+										$('#logradouro').val(result.logradouro);								
+										$('#complemento').val(result.complemento);								
+										$('#uf').val(result.uf);								
+										$('#cidade').val(result.localidade);								
+										$('#bairro').val(result.bairro);								
+									}
+								})
+							} else {
+								
+								$('#logradouro').val('');								
+								$('#complemento').val('');								
+								$('#uf').val('');								
+								$('#cidade').val('');								
+								$('#bairro').val('');	
+							}
 						}
 
 					</script>					
@@ -50,14 +96,14 @@
 				<div class="col-sm-7">
 					<div class="form-group">
 						{!! Form::label('logradouro', 'Logradouro:') !!}
-						{!! Form::text('nome', null, ['class' => 'form-control']) !!}
+						{!! Form::text('logradouro', null, ['class' => 'form-control']) !!}
 					</div>					
 				</div>
 
 				<div class="col-sm-2">
 					<div class="form-group">
-						{!! Form::label('logradouro', 'Número:') !!}
-						{!! Form::text('nome', null, ['class' => 'form-control']) !!}
+						{!! Form::label('numero', 'Número:') !!}
+						{!! Form::text('numero', null, ['class' => 'form-control']) !!}
 					</div>					
 				</div>
 			</div>
@@ -65,15 +111,15 @@
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="form-group">
-						{!! Form::label('cep', 'Complemento:') !!}
-						{!! Form::text('cep', null, ['class' => 'form-control']) !!}
+						{!! Form::label('complemento', 'Complemento:') !!}
+						{!! Form::text('complemento', null, ['class' => 'form-control']) !!}
 					</div>					
 				</div>
 				
 				<div class="col-sm-6">
 					<div class="form-group">
-						{!! Form::label('logradouro', 'Bairro:') !!}
-						{!! Form::text('nome', null, ['class' => 'form-control']) !!}
+						{!! Form::label('bairro', 'Bairro:') !!}
+						{!! Form::text('bairro', null, ['class' => 'form-control']) !!}
 					</div>					
 				</div>
 			</div>
@@ -81,32 +127,32 @@
 			<div class="row">
 				<div class="col-sm-2">
 					<div class="form-group">
-						{!! Form::label('cep', 'UF:') !!}
-						{!! Form::text('cep', null, ['class' => 'form-control']) !!}
+						{!! Form::label('uf', 'UF:') !!}
+						{!! Form::text('uf', null, ['class' => 'form-control']) !!}
 					</div>					
 				</div>
 				
 				<div class="col-sm-6">
 					<div class="form-group">
-						{!! Form::label('logradouro', 'Cidade:') !!}
-						{!! Form::text('nome', null, ['class' => 'form-control']) !!}
+						{!! Form::label('cidade', 'Cidade:') !!}
+						{!! Form::text('cidade', null, ['class' => 'form-control']) !!}
 					</div>					
 				</div>
 
 				<div class="col-sm-4">
 					<div class="form-group">
-						{!! Form::label('logradouro', 'Telefone:') !!}
-						{!! Form::text('nome', null, ['class' => 'form-control']) !!}
+						{!! Form::label('telefone', 'Telefone:') !!}
+						{!! Form::text('telefone', null, ['class' => 'form-control']) !!}
 					</div>					
 				</div>
 			</div>
 
-		{!! Form::close()!!}
-      </div>
+			<div class="modal-footer">
+		    	<input type="submit" class="btn btn-primary" label="Salvar"></input>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+		    </div>
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Salvar</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+		{!! Form::close()!!}
       </div>
     </div>
   </div>

@@ -11,10 +11,12 @@ class Endereco extends Model {
     
     protected $table = 'enderecos';
 
+    protected $hidden = ['id'];
+
     protected $fillable = ['cep', 'logradouro', 'complemento', 'uf', 'cidade', 'bairro'];
 
     public function clientes() {
-    	return $this->belongsToMany('App\Http\Model\Cliente');
+    	return $this->hasMany('App\Http\Model\Cliente', 'endereco_id');
     }
 
     public function fretes() {
