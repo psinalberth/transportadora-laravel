@@ -34,8 +34,17 @@
 				<div class="col-sm-3">
 					<div class="form-group">
 						{!! Form::label('cep', 'CEP:') !!}
-						{!! Form::text('cep', null, ['class' => 'form-control']) !!}
-					</div>					
+						{!! Form::text('cep', null, ['class' => 'form-control', 'onkeyup' => 'foo()']) !!}
+					</div>
+					<script>
+
+						function foo() {
+
+							if (document.getElementById("cep").value.length == 8)
+								alert(document.getElementById('cep'));
+						}
+
+					</script>					
 				</div>
 
 				<div class="col-sm-7">
