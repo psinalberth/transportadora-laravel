@@ -1,45 +1,65 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('layouts.master')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
-        <style>
-            html, body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
+@section('content')
+<div class="row">
+    <div class="row">
+       <div class="col-sm-6">
+            <a href="/api/clientes">
+              <div class="card card-block">
+                <div style="color: lightgreen">
+                    <div class="col-sm-3">
+                        <span class="glyphicon glyphicon-user" style="font-size: 7.6em"></span>
+                    </div>
+                    <div class="col-sm-6">
+                          <div class="row">
+                              <span style="font-size: 4em">2000</span>
+                          </div>
+                          <div class="row">
+                              <span style="font-size: 1.7em">clientes satisfeitos</span>
+                          </div>
+                    </div>
+                </div>
+              </div>
+            </a>
+       </div>
+       <div class="col-sm-6">
+            <a href="api/fretes">
+                <div class="card card-block">
+                  <div style="color:#F4B350">
+                      <div class="col-sm-3">
+                          <span class="glyphicon glyphicon-send" style="font-size: 7.6em"></span>
+                      </div>
+                      <div class="col-sm-6">
+                            <div class="row">
+                                <span style="font-size: 4em">2000</span>
+                            </div>
+                            <div class="row">
+                                <span style="font-size: 1.7em">entregas efetuadas</span>
+                            </div>
+                      </div>
+                  </div>
+                </div>
+            </a>
+       </div>
+    </div>
+    <div class="row" style="padding-top: 5%">
+        <div class="col-sm-6">
+            <div class="card card-block">
+              <div style="color: lightblue">
+                  <div class="col-sm-3">
+                      <span class="glyphicon glyphicon-home" style="font-size: 7.6em"></span>
+                  </div>
+                  <div class="col-sm-6">
+                        <div class="row">
+                            <span style="font-size: 4em">2000</span>
+                        </div>
+                        <div class="row">
+                            <span style="font-size: 1.7em">cidades visitadas</span>
+                        </div>
+                  </div>
+              </div>
             </div>
-        </div>
-    </body>
-</html>
+       </div>
+    </div>
+</div>
+@endsection

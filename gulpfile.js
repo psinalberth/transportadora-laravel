@@ -1,5 +1,6 @@
 var elixir = require('laravel-elixir');
 
+var dir = "vendor/twbs/bootstrap/";
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -12,5 +13,7 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+    mix.copy(dir + "fonts", "public/fonts")
+    	.copy(dir + "dist/js/bootstrap.min.js", "public/js/bootstrap.min.js")
+    .less('app.less');
 });

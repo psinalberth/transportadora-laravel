@@ -6,6 +6,6 @@ class ClientesController extends Controller {
 
 	public function index() {
 
-		return '<b>I\'m Alive</b>';
+		return view('clientes.clientes');
 	}
 }

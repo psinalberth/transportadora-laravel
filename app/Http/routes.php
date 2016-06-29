@@ -12,14 +12,14 @@
  */
 
 Route::get('/', function () {
-		return view('welcome');
-	});
+	return view('welcome');
+});
 
 Route::group(['prefix' => 'api'], function () {
 
-		Route::group(['prefix' => 'clientes'], function () {
+	Route::group(['prefix' => 'clientes'], function () {
 
-				Route::get('', ['uses' => 'ClientesController@index']);
+			Route::get('', ['uses' => 'ClientesController@index']);
 
-			});
-	});
+		});
+});
