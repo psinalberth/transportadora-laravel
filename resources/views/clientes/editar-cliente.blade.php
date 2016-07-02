@@ -20,9 +20,25 @@
 				<div class="col-sm-3">
 					<div class="form-group">
 						{!! Form::label('cep', 'CEP:') !!}
-						{!! Form::text('endereco[cep]', null, ['class' => 'form-control', 'onkeyup' => 'foo()', 'maxlength' => 8]) !!}
+						{!! Form::text('cep', null, ['class' => 'form-control', 'onkeyup' => 'foo()', 'maxlength' => 8]) !!}
 					</div>
 					<script>
+
+						window.onload = function() {
+
+							$.ajax({
+							    url: '{{action('ClientesController@show', $cliente->id)}}', 
+							    success: function(result, response) {
+							    	
+							    	$("#cep").val(result.endereco.cep);
+							        $('#logradouro').val(result.endereco.logradouro);							
+									$('#complemento').val(result.complemento);								
+									$('#uf').val(result.endereco.uf);								
+									$('#cidade').val(result.endereco.cidade);								
+									$('#bairro').val(result.endereco.bairro);								
+							    }
+							});
+						}
 
 						function foo() {
 
@@ -58,7 +74,7 @@
 				<div class="col-sm-7">
 					<div class="form-group">
 						{!! Form::label('logradouro', 'Logradouro:') !!}
-						{!! Form::text('endereco[logradouro]', null, ['class' => 'form-control']) !!}
+						{!! Form::text('logradouro', null, ['class' => 'form-control']) !!}
 					</div>					
 				</div>
 
@@ -81,7 +97,7 @@
 				<div class="col-sm-6">
 					<div class="form-group">
 						{!! Form::label('bairro', 'Bairro:') !!}
-						{!! Form::text('endereco[bairro]', null, ['class' => 'form-control']) !!}
+						{!! Form::text('bairro', null, ['class' => 'form-control']) !!}
 					</div>					
 				</div>
 			</div>
@@ -90,14 +106,14 @@
 				<div class="col-sm-2">
 					<div class="form-group">
 						{!! Form::label('uf', 'UF:') !!}
-						{!! Form::text('endereco[uf]', null, ['class' => 'form-control']) !!}
+						{!! Form::text('uf', null, ['class' => 'form-control']) !!}
 					</div>					
 				</div>
 				
 				<div class="col-sm-6">
 					<div class="form-group">
 						{!! Form::label('cidade', 'Cidade:') !!}
-						{!! Form::text('endereco[cidade]', null, ['class' => 'form-control']) !!}
+						{!! Form::text('cidade', null, ['class' => 'form-control']) !!}
 					</div>					
 				</div>
 

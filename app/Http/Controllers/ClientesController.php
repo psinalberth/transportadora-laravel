@@ -9,6 +9,7 @@ use App\Http\Requests\EnderecoRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Model\Cliente;
 use App\Http\Model\Endereco;
+use Illuminate\Support\Facades\Input;
 
 class ClientesController extends Controller {
 
@@ -44,7 +45,14 @@ class ClientesController extends Controller {
 		
 		$cliente = $this->show($id);
 
+		$cliente->endereco->update($request->all());
+
+		// $endereco->update($request->all());
+
 		$cliente->update($request->all());
+
+		// dd(Input::all());
+		dd($cliente);
 
 		return redirect('transportadora/clientes');
 	}
