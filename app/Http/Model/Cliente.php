@@ -20,6 +20,6 @@ class Cliente extends Model {
     }
 
     public function fretes() {
-    	return $this->belongsToMany('App\Http\Model\Frete');
+    	return $this->hasMany('App\Http\Model\Frete', 'cliente_id');
     }
 }

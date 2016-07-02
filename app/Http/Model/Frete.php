@@ -10,13 +10,13 @@ class Frete extends Model {
     
 	protected $table = 'fretes';
 
-    protected $fillable = ['descricao', 'data_saida', 'data_chegada', 'peso', 'valor'];
+    protected $fillable = ['descricao', 'data_saida', 'data_chegada', 'peso', 'valor', 'cliente_id', 'endereco_id'];
 
     public function cliente() {
-    	return $this->hasOne('App\Http\Model\Cliente');
+    	return $this->belongsTo('App\Http\Model\Cliente');
     }
 
     public function endereco() {
-    	return $this->hasOne('App\Http\Model\Endereco');
+    	return $this->belongsTo('App\Http\Model\Endereco');
     }
 }

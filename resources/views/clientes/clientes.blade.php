@@ -3,12 +3,12 @@
 @section('content')
 
 <div class="row">
-
+	
 	<div class="row page-header">
 		<h1 class="xis">
 			<ul>
 			<li>
-				<a href="{{URL::route('transportadora.clientes.create')}}" style="color: inherit">
+				<a href="{{action('ClientesController@create')}}" style="color: inherit">
 					<i class="fa fa-user pull-left fa-fw"></i>
 					<c><i class="fa fa-user-plus pull-left fa-fw"></i><c>
 				</a>

@@ -7,7 +7,7 @@
     <div class="row">
 
        <div class="col-sm-6">
-            <a href="{{URL::route('transportadora.clientes.index')}}">
+            <a href="{{action('ClientesController@index')}}">
               <div class="card card-block">
                 <div style="color: lightgreen">
                     <div class="col-sm-3">
@@ -29,7 +29,7 @@
        </div>
 
        <div class="col-sm-6">
-            <a href="#/fretes">
+            <a href="{{action('FretesController@index')}}">
                 <div class="card card-block">
                   <div style="color:#F4B350">
                       <div class="col-sm-3">
@@ -40,7 +40,9 @@
                                 <span style="font-size: 4em">{{$fretes}}</span>
                             </div>
                             <div class="row">
-                                <span style="font-size: 1.7em">Entregas efetuadas</span>
+                                <span style="font-size: 1.7em">
+                                  {{ $fretes == 1 ? 'Entrega efetuada': 'Entregas efetuadas'}}
+                                </span>
                             </div>
                       </div>
                   </div>
