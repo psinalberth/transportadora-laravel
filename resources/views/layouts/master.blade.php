@@ -19,9 +19,9 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li><a href="{{action('ClientesController@index')}}">Clientes</a></li>
-              <li><a href="#contact">Fretes</a></li>
-              <li><a href="#contact">Cidades</a></li>
+              <li><a href="{{action('ClientesController@index')}}"><i class="fa fa-user fa-fw fa-lg"></i>Clientes</a></li>
+              <li><a href="#contact"><i class="fa fa-truck fa-fw fa-lg"></i>Fretes</a></li>
+              <li><a href="#contact"><i class="fa fa-home fa-fw fa-lg"></i>Cidades</a></li>
             </ul>
           </div>
         </div>

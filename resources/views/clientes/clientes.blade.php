@@ -5,8 +5,19 @@
 <div class="row">
 
 	<div class="row page-header">
-		<h2>Clientes</h2>
+		<h1 class="xis">
+			<ul>
+			<li>
+				<a href="{{URL::route('transportadora.clientes.create')}}" style="color: inherit">
+					<i class="fa fa-user pull-left fa-fw"></i>
+					<c><i class="fa fa-user-plus pull-left fa-fw"></i><c>
+				</a>
+			</li>
+			</ul>
+			Clientes
+		</h1>
 	</div>
+
 	<div class="row">
 		<div class="table-responsive">
 			<table class="table table-bordered">
@@ -37,7 +48,7 @@
 	</div>
 
 	<div class="row modal-footer">
-		<a href="{{URL::route('transportadora.clientes.create')}}" class="btn btn-circle btn-primary btn-lg"><i class="fa fa-user-plus"></i></a>
+		<!-- <a href="{{URL::route('transportadora.clientes.create')}}" class="btn btn-circle btn-primary btn-lg"><i class="fa fa-user-plus"></i></a> -->
 	</div>
 	
 </div>

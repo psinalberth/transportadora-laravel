@@ -6,7 +6,7 @@
 	<div class="modal-body">
 
 		<div class="page-header">
-			<h2>Editar Cliente</h2>
+			<h2><i class="fa fa-pencil pull-left"></i>Editar Cliente</h2>
 		</div>
 		
 		{!! Form::model($cliente, ['method' => 'PATCH', 'action' => ['ClientesController@update', $cliente->id]]) !!}
