@@ -16,6 +16,7 @@ class ClientesController extends Controller {
 	protected $endereco = null;
 
 	public function __construct(Cliente $cliente, Endereco $endereco) {
+		
 		$this->cliente = $cliente;
 		$this->endereco = $endereco;
 	}
@@ -27,16 +28,32 @@ class ClientesController extends Controller {
 		return view('clientes.clientes')->with('clientes', $clientes);
 	}
 
-	public function teste() {
-
-		return Cliente::with('endereco')->get();
+	public function create() {
+		
+		return view('clientes.novo-cliente');
 	}
 
-	public function editar() {
+	public function show($id) {
 
 		$cliente = Cliente::with('endereco')->findOrFail($id);
 
 		return $cliente;
+	}
+
+	public function update(Request $request, $id) {
+		
+		$cliente = $this->show($id);
+
+		$cliente->update($request->all());
+
+		return redirect('transportadora/clientes');
+	}
+
+	public function edit($id) {
+
+		$cliente = $this->show($id);
+
+		return view('clientes.editar-cliente')->with('cliente', $cliente);
 	}
 
 	public function store(Request $request, Cliente $cliente, Endereco $endereco) {
@@ -47,11 +64,6 @@ class ClientesController extends Controller {
 		$endereco->save();
 		$endereco->clientes()->save($cliente);
 
-		return $cliente;
-	}
-
-	public function dummy() {
-
-		return view('welcome');
+		return redirect('transportadora/clientes');
 	}
 }

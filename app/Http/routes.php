@@ -11,25 +11,11 @@
 |
  */
 
-/*Route::get('/', function () {
-	return view('welcome');
-	Route::get('/', ['uses' => 'WelcomeCotroller@index']);
-});*/
+Route::group(['prefix' => 'transportadora'], function () {
 
-Route::get('/', ['uses' => 'WelcomeController@index']);
+	Route::get('/', ['uses' => 'WelcomeController@index']);
 
-Route::group(['prefix' => 'api'], function () {
+	Route::resource('clientes', 'ClientesController');
 
-	Route::group(['prefix' => 'clientes'], function () {
-
-			Route::get('', ['uses' => 'ClientesController@index']);
-
-			Route::post('', ['uses' => 'ClientesController@store']);
-
-			Route::get('/{id}', ['uses' => 'ClientesController@editar']);
-
-			Route::get('/teste', ['uses' => 'ClientesController@dummy']);
-
-			Route::get('/aa', ['uses' => 'ClientesController@teste']);
-		});
+	Route::resource('fretes', 'FretesController');
 });

@@ -1,10 +1,13 @@
 @extends('layouts.master')
 
 @section('content')
+
 <div class="row">
+
     <div class="row">
+
        <div class="col-sm-6">
-            <a href="/api/clientes">
+            <a href="{{URL::route('transportadora.clientes.index')}}">
               <div class="card card-block">
                 <div style="color: lightgreen">
                     <div class="col-sm-3">
@@ -24,8 +27,9 @@
               </div>
             </a>
        </div>
+
        <div class="col-sm-6">
-            <a href="api/fretes">
+            <a href="#/fretes">
                 <div class="card card-block">
                   <div style="color:#F4B350">
                       <div class="col-sm-3">
@@ -43,8 +47,11 @@
                 </div>
             </a>
        </div>
+
     </div>
+
     <div class="row" style="padding-top: 5%">
+
         <div class="col-sm-6">
             <div class="card card-block">
               <div style="color: lightblue">
@@ -62,6 +69,8 @@
               </div>
             </div>
        </div>
+
     </div>
+    
 </div>
 @endsection

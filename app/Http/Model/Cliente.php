@@ -11,7 +11,7 @@ class Cliente extends Model {
     
 	protected $table = 'clientes';
 
-	protected $hidden = ['id', 'endereco_id'];
+	protected $hidden = ['endereco_id'];
 
     protected $fillable = ['nome', 'numero', 'complemento', 'telefone', 'endereco_id'];
 

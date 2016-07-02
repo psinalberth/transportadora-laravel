@@ -3,7 +3,7 @@
   <head>
       <meta charset="UTF-8">
       <title>Transportadora</title>
-      <link rel="stylesheet" href="../css/app.css">
+      <link rel="stylesheet" href="/css/app.css"> 
   </head>
   <body>
       <nav class="navbar navbar-light navbar-static-top">
@@ -15,11 +15,11 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="{{action('WelcomeController@index')}}">Project name</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li><a href="/api/clientes">Clientes</a></li>
+              <li><a href="{{action('ClientesController@index')}}">Clientes</a></li>
               <li><a href="#contact">Fretes</a></li>
               <li><a href="#contact">Cidades</a></li>
             </ul>
@@ -30,8 +30,7 @@
     <div class="container">
         @yield('content')
     </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
   </body>
 </html>
