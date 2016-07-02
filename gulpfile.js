@@ -1,6 +1,7 @@
 var elixir = require('laravel-elixir');
 
-var dir = "vendor/twbs/bootstrap/";
+var bootstrapDir = "vendor/twbs/bootstrap/";
+var fontAwesomeDir = "vendor/components/font-awesome/";
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -13,7 +14,8 @@ var dir = "vendor/twbs/bootstrap/";
  */
 
 elixir(function(mix) {
-    mix.copy(dir + "fonts", "public/fonts")
-    	.copy(dir + "dist/js/bootstrap.min.js", "public/js/bootstrap.min.js")
-    .less('app.less');
+    mix.copy(bootstrapDir + "fonts", "public/fonts")
+    	.copy(bootstrapDir + "dist/js/bootstrap.min.js", "public/js/bootstrap.min.js")
+    	.copy(fontAwesomeDir + "fonts", "public/fonts")
+    .less(['app.less', 'custom.less']);
 });

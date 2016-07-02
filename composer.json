@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "prettus/l5-repository": "^2.6",
         "twbs/bootstrap": "^3.3",
-        "laravelcollective/html": "^5.2"
+        "laravelcollective/html": "^5.2",
+        "components/font-awesome": "^4.6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

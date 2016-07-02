@@ -7,7 +7,6 @@
 	<div class="row page-header">
 		<h2>Clientes</h2>
 	</div>
-
 	<div class="row">
 		<div class="table-responsive">
 			<table class="table table-bordered">
@@ -38,7 +37,7 @@
 	</div>
 
 	<div class="row modal-footer">
-		<a href="{{URL::route('transportadora.clientes.create')}}" class="btn btn-primary">Novo</a>
+		<a href="{{URL::route('transportadora.clientes.create')}}" class="btn btn-circle btn-primary btn-lg"><i class="fa fa-user-plus"></i></a>
 	</div>
 	
 </div>
