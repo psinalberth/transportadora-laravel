@@ -180,3 +180,4 @@ class PostsController extends Controller {
 		return redirect()->back()->with('message', 'Post deleted.');
 	}
 }
+	

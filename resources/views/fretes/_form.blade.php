@@ -17,7 +17,7 @@
 
 		<div class="form-group">
 			{!! Form::label('cliente', 'Cliente:') !!}
-			{!! Form::select('cliente', $clientes, null, ['optional' => 'Cliente', 'class' => 'form-control', 'onchange' => 'findCliente()', $readonly]) !!}
+			{!! Form::select('cliente', $clientes, null, ['optional' => 'Cliente', 'class' => 'form-control', $readonly]) !!}
 		</div>
 
 		<div class="row">
@@ -25,38 +25,7 @@
 				<div class="form-group">
 					{!! Form::label('cep_cliente', 'CEP:') !!}
 					{!! Form::text('cep_cliente', null, ['class' => 'form-control', 'maxlength' => 8, $readonly]) !!}
-				</div>
-				<script>
-
-					function findCliente() {
-
-						var _id = $("#cliente").val();
-
-						var baseUrl = '{{action('ClientesController@index')}}';
-
-						console.log(baseUrl);
-
-						$.ajax({
-							data: _id,
-							params: _id,
-						    url: baseUrl + '/' + _id,
-						    success: function(result, response) {
-						    	
-						    	console.log(result);
-						    	
-						    	$("#numero_cliente").val(result.numero);
-						    	$("#telefone_cliente").val(result.telefone);
-						    	$("#cep_cliente").val(result.endereco.cep);
-						        $('#logradouro_cliente').val(result.endereco.logradouro);					
-								$('#complemento_cliente').val(result.complemento);							
-								$('#uf_cliente').val(result.endereco.uf);								
-								$('#cidade_cliente').val(result.endereco.cidade);							
-								$('#bairro_cliente').val(result.endereco.bairro);
-						    }
-						});
-					}	
-
-				</script>					
+				</div>				
 			</div>
 
 			<div class="col-sm-7">
@@ -122,90 +91,8 @@
 			<div class="col-sm-3">
 				<div class="form-group">
 					{!! Form::label('cep', 'CEP:') !!}
-					{!! Form::text('cep', null, ['class' => 'form-control', 'onkeyup' => 'findEndereco()', 'maxlength' => 8, $readonly]) !!}
-				</div>
-
-								
-
-				<script type="text/javascript">
-
-					function findEndereco() {
-
-						if ($('#cep').val().length == 8) {
-
-							$.ajax({
-								type: 'GET',
-								dataType: 'json',
-								url: 'https://viacep.com.br/ws/' + $('#cep').val() + '/json/',
-								data: '',
-								success: function(result, success) {
-
-									
-									
-									$('#logradouro').val(result.logradouro);								
-									$('#complemento').val(result.complemento);								
-									$('#uf').val(result.uf);								
-									$('#cidade').val(result.localidade);								
-									$('#bairro').val(result.bairro);								
-								}
-							}).done(function() {
-								
-								if (($('#cidade_cliente').val() != '') && 
-								    ($('#bairro_cliente').val() != '') &&
-								    ($('#uf_cliente').val() != '')) {
-
-									var baseUrl = 'http://maps.googleapis.com/maps/api/distancematrix/json?';
-
-									var origins = $('#cidade_cliente').val() + ' ' +
-												  $('#uf_cliente').val() + ' ' +
-												  $('#bairro_cliente').val();
-
-									var destinations = $('#cidade').val() + ' ' +
-												  $('#uf').val() + ' ' +
-												  $('#bairro').val();
-
-									var url = baseUrl + 'origins=' + origins + '&destinations=' + destinations + '&mode=driving&language=pt-BR&sensor=false';
-
-									console.log(url);
-
-									$.ajax({
-										type: 'GET',
-										dataType: 'json',
-										url: url,
-										data: '',
-										success: function(result) {
-
-											var taxa = result.rows[0].elements[0].distance.value;
-
-											taxa = taxa / 100000;
-
-											if ($('#peso').val() != '') {
-
-												var valor = $('#peso').val() * 10;
-
-												valor = valor + taxa;
-
-												$('#valor').val(valor.toFixed(2));
-
-											} else {
-
-												$('#valor').val(taxa.toFixed(2));
-											}
-										}
-									});
-								}
-							})
-						} else {
-							
-							$('#logradouro').val('');								
-							$('#complemento').val('');								
-							$('#uf').val('');								
-							$('#cidade').val('');								
-							$('#bairro').val('');	
-						}
-					}
-
-				</script>					
+					{!! Form::text('cep', null, ['class' => 'form-control', 'maxlength' => 8, $readonly]) !!}
+				</div>					
 			</div>
 
 			<div class="col-sm-7">

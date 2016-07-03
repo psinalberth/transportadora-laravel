@@ -23,6 +23,4 @@ class TransportadoraTest extends TestCase
     		->click('Clientes')
     		->seePageIs('/transportadora/clientes');
     }
-
-    public function testDeve
 }

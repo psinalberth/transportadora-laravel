@@ -11,11 +11,13 @@
 |
  */
 
-Route::group(['prefix' => 'transportadora'], function () {
+Route::group(['prefix' => 'transportadora', 'middleware' => 'cors'], function () {
 
 	Route::get('/', ['uses' => 'WelcomeController@index']);
 
 	Route::resource('clientes', 'ClientesController');
 
 	Route::resource('fretes', 'FretesController');
+
+	Route::get('enderecos/cep/{cep}','EnderecoController@findByCep');
 });

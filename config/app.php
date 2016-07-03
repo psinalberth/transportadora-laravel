@@ -161,6 +161,8 @@ return [
 		Prettus\Repository\Providers\RepositoryServiceProvider::class ,
 		Collective\Html\HtmlServiceProvider::class,
 
+		Barryvdh\Cors\ServiceProvider::class,
+
 	],
 
 	/*

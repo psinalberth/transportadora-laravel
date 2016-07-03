@@ -21,39 +21,8 @@
 				<div class="col-sm-3">
 					<div class="form-group">
 						{!! Form::label('cep', 'CEP:') !!}
-						{!! Form::text('cep', null, ['class' => 'form-control', 'onkeyup' => 'foo()', 'maxlength' => 8]) !!}
-					</div>
-					<script>
-
-						function foo() {
-
-							if ($('#cep').val().length == 8) {
-
-								$.ajax({
-									type: 'GET',
-									dataType: 'json',
-									url: 'https://viacep.com.br/ws/' + $('#cep').val() + '/json/',
-									data: '',
-									success: function(result, success) {
-										
-										$('#logradouro').val(result.logradouro);								
-										$('#complemento').val(result.complemento);								
-										$('#uf').val(result.uf);								
-										$('#cidade').val(result.localidade);								
-										$('#bairro').val(result.bairro);								
-									}
-								})
-							} else {
-								
-								$('#logradouro').val('');								
-								$('#complemento').val('');								
-								$('#uf').val('');								
-								$('#cidade').val('');								
-								$('#bairro').val('');	
-							}
-						}
-
-					</script>					
+						{!! Form::text('cep', null, ['class' => 'form-control', 'maxlength' => 8]) !!}
+					</div>			
 				</div>
 
 				<div class="col-sm-7">
