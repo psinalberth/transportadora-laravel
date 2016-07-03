@@ -13,7 +13,7 @@
 
 			<div class="form-group">
 				{!! Form::label('nome', 'Nome:') !!}
-				{!! Form::text('nome', null, ['class' => 'form-control']) !!}
+				{!! Form::text('nome', null, ['class' => 'form-control', 'readonly' => 'true']) !!}
 			</div>
 			
 			<div class="row">
@@ -25,6 +25,7 @@
 					<script>
 
 						window.onload = function() {
+							// console.log({{$cliente}});
 
 							$.ajax({
 							    url: '{{action('ClientesController@show', $cliente->id)}}', 

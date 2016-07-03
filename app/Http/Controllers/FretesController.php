@@ -32,8 +32,6 @@ class FretesController extends Controller {
 
         $frete = Frete::with('cliente', 'endereco')->find($id);
 
-        dd($frete);
-
         return $frete;
     }
 
@@ -57,5 +55,14 @@ class FretesController extends Controller {
     	dd($frete);
     	
 		// return redirect('transportadora/clientes');
+    }
+
+    public function edit($id) {
+
+        $frete = $this->show($id);
+
+        $clientes = Cliente::get()->lists('nome', 'id');
+
+        return view('fretes.editar-frete')->with('clientes', $clientes)->with('frete', $frete);
     }
 }
