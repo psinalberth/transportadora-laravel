@@ -13,7 +13,7 @@
 
 			<div class="form-group">
 				{!! Form::label('nome', 'Nome:') !!}
-				{!! Form::text('nome', null, ['class' => 'form-control', 'readonly' => 'true']) !!}
+				{!! Form::text('nome', null, ['class' => 'form-control']) !!}
 			</div>
 			
 			<div class="row">
@@ -31,7 +31,7 @@
 							    success: function(result, response) {
 							    	
 							    	$("#cep").val(result.endereco.cep);
-							        $('#logradouro').val(result.endereco.logradouro);							
+							        $('#logradouro').val(result.endereco.logradouro);						
 									$('#complemento').val(result.complemento);								
 									$('#uf').val(result.endereco.uf);								
 									$('#cidade').val(result.endereco.cidade);								

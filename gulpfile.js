@@ -17,5 +17,5 @@ elixir(function(mix) {
     mix.copy(bootstrapDir + "fonts", "public/fonts")
     	.copy(bootstrapDir + "dist/js/bootstrap.min.js", "public/js/bootstrap.min.js")
     	.copy(fontAwesomeDir + "fonts", "public/fonts")
-    .less(['app.less', 'custom.less']);
+    .less(['app.less', 'custom.less', 'bootswatch.less']);
 });

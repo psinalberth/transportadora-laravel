@@ -9,7 +9,7 @@
       <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyB_5mWADgj7N_Q2OfgRh1IJUp0i0sh3H7M"></script> 
   </head>
   <body>
-      <nav class="navbar navbar-light navbar-static-top">
+      <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
