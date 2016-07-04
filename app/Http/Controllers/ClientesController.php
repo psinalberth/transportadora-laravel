@@ -37,10 +37,7 @@ class ClientesController extends Controller {
 	}
 
 	public function destroy($id) {
-
-		$this->clientes->delete($id);
-
-		return redirect('transportadora/clientes');
+		return redirect('transportadora/clientes')->with('cliente', $this->clientes->delete($id));
 	}
 
 	public function update(Request $request, $id) {

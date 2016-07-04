@@ -56,6 +56,10 @@ abstract class RepositoryEloquent implements Repository {
 		return $this->model->get($columns);
 	}
 
+	public function count() {
+		return $this->model->count();
+	}
+
 	public function allBy($key, $value, $with = []) {
 
 		if (isset($with) && $with != '') {

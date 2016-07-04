@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Model\Frete;
 use App\Repositories\ClienteRepository as Clientes;
@@ -15,7 +14,6 @@ class FretesController extends Controller {
     private $clientes;
     private $fretes;
     private $enderecos;
-
 
 	public function __construct(Clientes $clientes, Enderecos $enderecos, Fretes $fretes) {
 
@@ -41,10 +39,7 @@ class FretesController extends Controller {
     }
 
     public function destroy($id) {
-
-        $this->fretes->delete($id);
-
-        return redirect('transportadora/fretes');
+        return redirect('transportadora/fretes')->with('frete', $this->fretes->delete($id));
     }
 
     public function store(Request $request) {

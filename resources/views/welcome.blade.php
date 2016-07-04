@@ -19,7 +19,7 @@
                           </div>
                           <div class="row">
                               <span style="font-size: 1.7em">
-                                {{ $clientes == 1 ? 'Cliente satisfeito': 'Clientes satisfeitos'}}
+                                {{ $clientes == 1 ? 'Cliente': 'Clientes'}}
                               </span>
                           </div>
                     </div>
@@ -62,10 +62,12 @@
                   </div>
                   <div class="col-sm-6">
                         <div class="row">
-                            <span style="font-size: 4em">2000</span>
+                            <span style="font-size: 4em">{{$enderecos}}</span>
                         </div>
                         <div class="row">
-                            <span style="font-size: 1.7em">Cidades visitadas</span>
+                            <span style="font-size: 1.7em">
+                              {{ $enderecos == 1 ? 'Endereço visitado': 'Endereços visitados'}}
+                            </span>
                         </div>
                   </div>
               </div>

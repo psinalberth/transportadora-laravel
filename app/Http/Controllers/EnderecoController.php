@@ -5,20 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Model\Endereco;
+use App\Repositories\EnderecoRepository as Enderecos;
 
 class EnderecoController extends Controller {
     
-    protected $endereco = null;
+    private $enderecos;
 
-    public function __construct(Endereco $endereco) {
-    	$this->endereco = $endereco;
+    public function __construct(Enderecos $enderecos) {
+    	$this->enderecos = $enderecos;
     }
 
     public function findByCep($cep) {
-
-    	$endereco = Endereco::where('cep', '=', $cep)->get();
-
-    	return $endereco;
+    	return $this->enderecos->allBy('cep', $cep);
     }
 }
