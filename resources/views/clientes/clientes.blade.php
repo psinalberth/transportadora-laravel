@@ -62,10 +62,6 @@
 			</table>
 		</div>
 	</div>
-
-	<div class="row modal-footer">
-		<!-- <a href="{{URL::route('transportadora.clientes.create')}}" class="btn btn-circle btn-primary btn-lg"><i class="fa fa-user-plus"></i></a> -->
-	</div>
 	
 </div>
 @stop
