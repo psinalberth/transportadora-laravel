@@ -22,6 +22,9 @@ class RepositoryServiceProvider extends ServiceProvider
      * @return void
      */
     public function register() {
-        $this->app->bind(\App\Repositories\ClienteRepository::class, \App\Repositories\ClienteRepositoryEloquent::class);
+        
+        $this->app->bind(\App\Repositories\ClienteRepository::class, \App\Repositories\Eloquent\ClienteRepositoryEloquent::class);
+
+        $this->app->bind(\App\Repositories\EnderecoRepository::class, \App\Repositories\Eloquent\EnderecoRepositoryEloquent::class);
     }
 }

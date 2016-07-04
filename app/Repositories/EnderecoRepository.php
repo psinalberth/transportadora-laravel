@@ -4,6 +4,6 @@ namespace App\Repositories;
 
 use App\Repositories\Repository;
 
-interface ClienteRepository extends Repository {
+interface EnderecoRepository extends Repository {
 
 }
