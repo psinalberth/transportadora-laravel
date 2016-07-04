@@ -6,63 +6,61 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Model\Frete;
-use App\Http\Model\Cliente;
-use App\Http\Controllers\ClientesController;
+use App\Repositories\ClienteRepository as Clientes;
+use App\Repositories\EnderecoRepository as Enderecos;
+use App\Repositories\FreteRepository as Fretes;
 
 class FretesController extends Controller {
 
-	protected $cliente = null;
-	protected $frete = null;
+    private $clientes;
+    private $fretes;
+    private $enderecos;
 
 
-	public function __construct(Frete $frete, Cliente $cliente) {
+	public function __construct(Clientes $clientes, Enderecos $enderecos, Fretes $fretes) {
 
-		$this->frete = $frete;
-		$this->cliente = $cliente;
+		$this->fretes = $fretes;
+		$this->enderecos = $enderecos;
+        $this->clientes = $clientes;
 	}
     
     public function index() {
+        return view('fretes.fretes')->with('fretes', $this->fretes->all());
+    }
 
-    	$fretes = Frete::with('cliente')->get();
-
-    	return view('fretes.fretes')->with('fretes', $fretes);
+    public function create() {  
+        return view('fretes.novo-frete')->with('clientes', $this->clientes->all()->lists('nome', 'id'));
     }
 
     public function show($id) {
-
-        $frete = Frete::with('cliente', 'endereco')->find($id);
-
-        return $frete;
-    }
-
-    public function create() {
-
-    	$clientes = Cliente::get()->lists('nome', 'id');
-
-    	return view('fretes.novo-frete')->with('clientes', $clientes);
-    }
-
-    public function store(Request $request, Frete $frete, Cliente $cliente) {
-
-    	$cliente = Cliente::with('endereco')->find($request['cliente']);
-        $endereco = $cliente->endereco;
-
-    	$frete = new Frete($request->all());
-        $frete->cliente()->associate($cliente);
-        $frete->endereco()->associate($cliente->endereco);
-        $frete->save();
-
-    	dd($frete);
-    	
-		// return redirect('transportadora/clientes');
+        return $this->fretes->find($id, 'endereco', 'cliente');
     }
 
     public function edit($id) {
+        return view('fretes.editar-frete')->with('frete', $this->show($id))->with('clientes', $this->clientes->all()->lists('nome', 'id'));
+    }
 
-        $frete = $this->show($id);
+    public function destroy($id) {
 
-        $clientes = Cliente::get()->lists('nome', 'id');
+        $this->fretes->delete($id);
 
-        return view('fretes.editar-frete')->with('clientes', $clientes)->with('frete', $frete);
+        return redirect('transportadora/fretes');
+    }
+
+    public function store(Request $request) {
+
+        $endereco = $this->enderecos->findBy('cep', $request->cep);
+        $cliente = $this->clientes->find($request->cliente);
+
+        if ($endereco == null) {
+            $endereco = $this->enderecos->save($request->all());
+        }
+
+    	$frete = new Frete($request->all());
+        $frete->cliente()->associate($cliente);
+        $frete->endereco()->associate($endereco);
+        $frete->save();
+    	
+		return redirect('transportadora/fretes');
     }
 }

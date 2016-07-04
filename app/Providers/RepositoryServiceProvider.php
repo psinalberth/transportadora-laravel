@@ -11,8 +11,7 @@ class RepositoryServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot() {
         //
     }
 
@@ -25,6 +24,8 @@ class RepositoryServiceProvider extends ServiceProvider
         
         $this->app->bind(\App\Repositories\ClienteRepository::class, \App\Repositories\Eloquent\ClienteRepositoryEloquent::class);
 
-        $this->app->bind(\App\Repositories\EnderecoRepository::class, \App\Repositories\Eloquent\EnderecoRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\EnderecoRepository::class, \App\Repositories\Eloquent\EnderecoRepositoryEloquent::class); 
+
+        $this->app->bind(\App\Repositories\FreteRepository::class, \App\Repositories\Eloquent\FreteRepositoryEloquent::class);
     }
 }

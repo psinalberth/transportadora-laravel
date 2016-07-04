@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Model\Cliente;
-use App\Http\Model\Endereco;
 use App\Repositories\ClienteRepository as Clientes;
 use App\Repositories\EnderecoRepository as Enderecos;
 

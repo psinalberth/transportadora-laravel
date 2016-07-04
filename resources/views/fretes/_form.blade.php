@@ -24,7 +24,7 @@
 			<div class="col-sm-3">
 				<div class="form-group">
 					{!! Form::label('cep_cliente', 'CEP:') !!}
-					{!! Form::text('cep_cliente', null, ['class' => 'form-control', 'maxlength' => 8, $readonly]) !!}
+					{!! Form::text('cep_cliente', null, ['class' => 'form-control', 'maxlength' => 8, $readonly, 'onkeypress' => 'return event.charCode >= 48 && event.charCode <= 57']) !!}
 				</div>				
 			</div>
 
@@ -38,7 +38,7 @@
 			<div class="col-sm-2">
 				<div class="form-group">
 					{!! Form::label('numero_cliente', 'Número:') !!}
-					{!! Form::text('numero_cliente', null, ['class' => 'form-control', $readonly]) !!}
+					{!! Form::text('numero_cliente', null, ['class' => 'form-control', $readonly, 'onkeypress' => 'return event.charCode >= 48 && event.charCode <= 57']) !!}
 				</div>					
 			</div>
 		</div>
@@ -77,7 +77,7 @@
 			<div class="col-sm-4">
 				<div class="form-group">
 					{!! Form::label('telefone_cliente', 'Telefone:') !!}
-					{!! Form::text('telefone_cliente', null, ['class' => 'form-control', $readonly]) !!}
+					{!! Form::text('telefone_cliente', null, ['class' => 'form-control', $readonly, 'onkeypress' => 'return event.charCode >= 48 && event.charCode <= 57']) !!}
 				</div>					
 			</div>
 		</div>
@@ -91,7 +91,7 @@
 			<div class="col-sm-3">
 				<div class="form-group">
 					{!! Form::label('cep', 'CEP:') !!}
-					{!! Form::text('cep', null, ['class' => 'form-control', 'maxlength' => 8, $readonly]) !!}
+					{!! Form::text('cep', null, ['class' => 'form-control', 'maxlength' => 8, $readonly, 'onkeypress' => 'return event.charCode >= 48 && event.charCode <= 57']) !!}
 				</div>					
 			</div>
 
@@ -105,7 +105,7 @@
 			<div class="col-sm-2">
 				<div class="form-group">
 					{!! Form::label('numero', 'Número:') !!}
-					{!! Form::text('numero', null, ['class' => 'form-control', $readonly]) !!}
+					{!! Form::text('numero', null, ['class' => 'form-control', $readonly, 'onkeypress' => 'return event.charCode >= 48 && event.charCode <= 57']) !!}
 				</div>					
 			</div>
 		</div>
@@ -144,7 +144,7 @@
 			<div class="col-sm-4">
 				<div class="form-group">
 					{!! Form::label('telefone', 'Telefone:') !!}
-					{!! Form::text('telefone', null, ['class' => 'form-control', $readonly]) !!}
+					{!! Form::text('telefone', null, ['class' => 'form-control', $readonly, 'onkeypress' => 'return event.charCode >= 48 && event.charCode <= 57']) !!}
 				</div>					
 			</div>
 		</div>
@@ -172,15 +172,15 @@
 
 	<div class="col-sm-3">
 		<div class="form-group">
-			{!! Form::label('peso', 'Peso:') !!}
-			{!! Form::text('peso', null, ['class' => 'form-control', $readonly]) !!}
+			{!! Form::label('peso', 'Peso (kg):') !!}
+			{!! Form::text('peso', null, ['class' => 'form-control', $readonly, 'onkeypress' => 'return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 46']) !!}
 		</div>
 	</div>
 	
 	<div class="col-sm-3">
 		<div class="form-group">
 			{!! Form::label('valor', 'Valor:') !!}
-			{!! Form::text('valor', null, ['class' => 'form-control', $readonly]) !!}
+			{!! Form::text('valor', null, ['class' => 'form-control', 'readonly' => 'readonly']) !!}
 		</div>
 	</div>
 	
