@@ -39,7 +39,7 @@ class FretesController extends Controller {
     }
 
     public function destroy($id) {
-        return redirect('transportadora/fretes')->with('frete', $this->fretes->delete($id));
+        return redirect('transportadora/fretes')->with('frete', $this->fretes->delete($id))->with('flash_message', 'Registro excluído com sucesso!');;
     }
 
     public function store(Request $request) {
@@ -56,6 +56,6 @@ class FretesController extends Controller {
         $frete->endereco()->associate($endereco);
         $frete->save();
     	
-		return redirect('transportadora/fretes');
+		return redirect('transportadora/fretes')->with('flash_message', 'Registro salvo com sucesso!');;
     }
 }

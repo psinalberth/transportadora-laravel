@@ -4,7 +4,9 @@
       <meta charset="UTF-8">
       <title>Transportadora</title>
       <link rel="stylesheet" href="/css/app.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css"/>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
       <script type="text/javascript" src="/js/custom.js"></script>
       <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyB_5mWADgj7N_Q2OfgRh1IJUp0i0sh3H7M"></script> 
   </head>
@@ -31,10 +33,16 @@
       </nav>
 
     <div class="container bs-docs-container">
+        
+        @include('layouts.flash')
+
         @yield('content')
     </div>
+
+    <script>
+      $('div.alert').not('.alert-important').delay(2000).slideUp(200);
+    </script>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
   </body>
 </html>

@@ -3,7 +3,7 @@
 	<div class="col-sm-12">
 		<div class="form-group">
 			{!! Form::label('descricao', 'Descrição:') !!}
-			{!! Form::text('descricao', null, ['class' => 'form-control', $readonly]) !!}
+			{!! Form::text('descricao', null, ['placeholder' => 'Descrição', 'class' => 'form-control', $readonly]) !!}
 		</div>		
 	</div>
 
@@ -17,7 +17,7 @@
 
 		<div class="form-group">
 			{!! Form::label('cliente', 'Cliente:') !!}
-			{!! Form::select('cliente', $clientes, null, ['optional' => 'Cliente', 'class' => 'form-control', $readonly]) !!}
+			{!! Form::select('cliente', $clientes, null, ['class' => 'cliente-select js-states form-control', $readonly]) !!}
 		</div>
 
 		<div class="row">
@@ -82,6 +82,18 @@
 			</div>
 		</div>
 	</div>
+
+	<script type="text/javascript">
+
+	 $(document).ready(function() {
+
+	 	$(".cliente-select").select2({
+			placeholder: 'Selecione um cliente',
+			allowClear: true
+	  	});	
+	 });
+	  
+	</script>
 
 	<div class="col-sm-6">
 		

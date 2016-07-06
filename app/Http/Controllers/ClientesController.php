@@ -37,7 +37,7 @@ class ClientesController extends Controller {
 	}
 
 	public function destroy($id) {
-		return redirect('transportadora/clientes')->with('cliente', $this->clientes->delete($id));
+		return redirect('transportadora/clientes')->with('cliente', $this->clientes->delete($id))->with('flash_message', 'Cliente removido com sucesso!');
 	}
 
 	public function update(Request $request, $id) {
@@ -54,7 +54,7 @@ class ClientesController extends Controller {
 
 		$cliente->update($request->except('_token', '_method'));
 
-		return redirect('transportadora/clientes');
+		return redirect('transportadora/clientes')->with('flash_message', 'Cliente atualizado com sucesso!');
 	}
 
 	public function store(Request $request) {
@@ -68,6 +68,6 @@ class ClientesController extends Controller {
 		$cliente = new Cliente($request->all());
 		$endereco->clientes()->save($cliente);
 
-		return redirect('transportadora/clientes');
+		return redirect('transportadora/clientes')->with('flash_message', 'Cliente salvo com sucesso!');
 	}
 }
