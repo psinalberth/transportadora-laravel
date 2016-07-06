@@ -1,3 +1,27 @@
+@if(isset($cliente))
+
+	<script>
+
+		window.onload = function() {
+
+			$.ajax({
+			    url: '{{action('ClientesController@show', $cliente->id)}}',
+			    success: function(result, response) {
+
+			    	$("#cep").val(result.endereco.cep);
+			        $('#logradouro').val(result.endereco.logradouro);
+					$('#complemento').val(result.complemento);
+					$('#uf').val(result.endereco.uf);
+					$('#cidade').val(result.endereco.cidade);
+					$('#bairro').val(result.endereco.bairro);
+			    }
+			});
+		}
+
+	</script>
+
+@endif
+
 <div class="form-group">
 	{!! Form::label('nome', 'Nome:') !!}
 	{!! Form::text('nome', null, ['class' => 'form-control']) !!}
@@ -9,30 +33,6 @@
 			{!! Form::label('cep', 'CEP:') !!}
 			{!! Form::text('cep', null, ['class' => 'form-control', 'maxlength' => 8]) !!}
 		</div>
-
-		@if(isset($cliente))
-
-		<script>
-
-			window.onload = function() {
-
-				$.ajax({
-				    url: '{{action('ClientesController@show', $cliente->id)}}',
-				    success: function(result, response) {
-
-				    	$("#cep").val(result.endereco.cep);
-				        $('#logradouro').val(result.endereco.logradouro);
-						$('#complemento').val(result.complemento);
-						$('#uf').val(result.endereco.uf);
-						$('#cidade').val(result.endereco.cidade);
-						$('#bairro').val(result.endereco.bairro);
-				    }
-				});
-			}
-
-		</script>
-
-		@endif
 	</div>
 
 	<div class="col-sm-7">
