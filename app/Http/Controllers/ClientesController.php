@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Model\Cliente;
+
 use App\Repositories\ClienteRepository as Clientes;
 use App\Repositories\EnderecoRepository as Enderecos;
+use Illuminate\Http\Request;
 
 class ClientesController extends Controller {
 
@@ -15,8 +15,8 @@ class ClientesController extends Controller {
 	private $enderecos;
 
 	public function __construct(Clientes $clientes, Enderecos $enderecos) {
-		
-		$this->clientes = $clientes;
+
+		$this->clientes  = $clientes;
 		$this->enderecos = $enderecos;
 	}
 
@@ -24,7 +24,7 @@ class ClientesController extends Controller {
 		return view('clientes.clientes')->with('clientes', $this->clientes->all());
 	}
 
-	public function create() {	
+	public function create() {
 		return view('clientes.novo-cliente');
 	}
 
@@ -41,7 +41,7 @@ class ClientesController extends Controller {
 	}
 
 	public function update(Request $request, $id) {
-		
+
 		$cliente = $this->clientes->find($id);
 
 		$endereco = $this->enderecos->findBy('cep', $request->cep);
@@ -58,7 +58,7 @@ class ClientesController extends Controller {
 	}
 
 	public function store(Request $request) {
-		
+
 		$endereco = $this->enderecos->findBy('cep', $request->cep);
 
 		if ($endereco == null) {
