@@ -9,7 +9,8 @@
 		<div class="panel-heading">
 			<div class="row">
 				<div class="col-xs-12">
-					<i class="fa fa-user pull-left fa-2x"></i><h2 class="panel-title" style="font-size:1.7em">Novo Cliente</h2>		
+					<i class="fa fa-user pull-left fa-2x"></i>
+					<h2 class="panel-title" style="font-size:1.7em">Novo Cliente</h2>
 				</div>
 			</div>
 		</div>
