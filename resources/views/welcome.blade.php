@@ -4,77 +4,70 @@
 
 <div class="row">
 
-    <div class="row">
-
-       <div class="col-sm-6">
-            <a href="{{action('ClientesController@index')}}">
-              <div class="card card-block">
-                <div style="color: lightgreen">
-                    <div class="col-sm-3">
-                        <span class="fa fa-user" style="font-size: 7.6em"></span>
-                    </div>
-                    <div class="col-sm-6">
-                          <div class="row">
-                              <span style="font-size: 4em">{{$clientes}}</span>
-                          </div>
-                          <div class="row">
-                              <span style="font-size: 1.7em">
-                                {{ $clientes == 1 ? 'Cliente': 'Clientes'}}
-                              </span>
-                          </div>
-                    </div>
-                </div>
-              </div>
-            </a>
-       </div>
-
-       <div class="col-sm-6">
-            <a href="{{action('FretesController@index')}}">
-                <div class="card card-block">
-                  <div style="color:#F4B350">
-                      <div class="col-sm-3">
-                          <span class="fa fa-truck" style="font-size: 7.6em"></span>
-                      </div>
-                      <div class="col-sm-6">
-                            <div class="row">
-                                <span style="font-size: 4em">{{$fretes}}</span>
-                            </div>
-                            <div class="row">
-                                <span style="font-size: 1.7em">
-                                  {{ $fretes == 1 ? 'Entrega efetuada': 'Entregas efetuadas'}}
-                                </span>
-                            </div>
-                      </div>
-                  </div>
-                </div>
-            </a>
-       </div>
-
-    </div>
-
-    <div class="row" style="padding-top: 5%">
-
-        <div class="col-sm-6">
-            <div class="card card-block">
-              <div style="color: lightblue">
-                  <div class="col-sm-3">
-                      <span class="fa fa-home" style="font-size: 7.6em"></span>
-                  </div>
-                  <div class="col-sm-6">
-                        <div class="row">
-                            <span style="font-size: 4em">{{$enderecos}}</span>
-                        </div>
-                        <div class="row">
-                            <span style="font-size: 1.7em">
-                              {{ $enderecos == 1 ? 'Endereço visitado': 'Endereços visitados'}}
-                            </span>
-                        </div>
-                  </div>
-              </div>
+  <div class="row">
+   
+    <div class="col-sm-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-9">
+              <i class="fa fa-user fa-5x" style="font-size: 7em"></i> 
             </div>
-       </div>
-
+            <div class="col-xs-3 text-right">
+              <div class="huge" style="font-size: 4em">{{$clientes}}</div>
+              <h2 class="panel-title">Clientes</h2>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          Content
+        </div>
+      </div>
     </div>
+
+    <div class="col-sm-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-9">
+              <i class="fa fa-truck fa-5x" style="font-size: 7em"></i> 
+            </div>
+            <div class="col-xs-3 text-right">
+              <div class="huge" style="font-size: 4em">{{$fretes}}</div>
+              <h2 class="panel-title">Entregas</h2>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          Content
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+   
+    <div class="col-sm-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-9">
+              <i class="fa fa-home fa-5x" style="font-size: 7em"></i> 
+            </div>
+            <div class="col-xs-3 text-right">
+              <div class="huge" style="font-size: 4em">{{$enderecos}}</div>
+              <h2 class="panel-title">Cidades</h2>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          Content
+        </div>
+      </div>
+    </div>
+
+  </div>
     
 </div>
 @endsection
