@@ -12,7 +12,7 @@
 			<li>
 				<a href="{{action('ClientesController@create')}}" style="color: inherit">
 					<i class="fa fa-user pull-left fa-fw"></i>
-					<c><i class="fa fa-user-plus pull-left fa-fw"></i><c>
+					<c><i class="fa fa-plus pull-left fa-fw"></i><c>
 				</a>
 			</li>
 			</ul>
@@ -24,7 +24,7 @@
 		<div class="table-responsive">
 			<table class="table table-bordered" data-toggle="dataTable" data-form="deleteForm">
 				<thead>
-					<tr>
+					<tr class="success">
 						<th>Nome</th>
 						<th>Bairro</th>
 						<th>Cidade</th>

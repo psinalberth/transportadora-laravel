@@ -12,7 +12,7 @@
 			<li>
 				<a href="{{action('FretesController@create')}}" style="color: inherit">
 					<i class="fa fa-shopping-cart pull-left fa-fw"></i>
-					<c><i class="fa fa-cart-plus pull-left fa-fw"></i><c>
+					<c><i class="fa fa-plus pull-left fa-fw"></i><c>
 				</a>
 			</li>
 			</ul>

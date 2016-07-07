@@ -4,10 +4,14 @@
 
 <div class="row">
 
-	<div class="modal-body">
+	<div class="panel panel-primary">
 
-		<div class="page-header">
-			<h2><i class="fa fa-user-plus pull-left"></i>Novo Cliente</h2>
+		<div class="panel-heading">
+			<div class="row">
+				<div class="col-xs-12">
+					<i class="fa fa-user pull-left fa-2x"></i><h2 class="panel-title" style="font-size:1.7em">Novo Cliente</h2>		
+				</div>
+			</div>
 		</div>
 
 		{!! Form::open(['method' => 'POST', 'action' => 'ClientesController@store']) !!}
@@ -15,6 +19,7 @@
 			@include('clientes._form')
 
 		{!! Form::close()!!}
+
       </div>
 </div>
 

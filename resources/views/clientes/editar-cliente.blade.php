@@ -3,10 +3,15 @@
 @section('content')
 
 <div class="row">
-	<div class="modal-body">
+	
+	<div class="panel panel-primary">
 
-		<div class="page-header">
-			<h2><i class="fa fa-pencil pull-left"></i>Editar Cliente</h2>
+		<div class="panel-heading">
+			<div class="row">
+				<div class="col-xs-12">
+					<i class="fa fa-pencil pull-left fa-2x"></i><h2 class="panel-title" style="font-size:1.7em">Editar Cliente</h2>		
+				</div>
+			</div>
 		</div>
 
 		{!! Form::model($cliente, ['method' => 'PATCH', 'action' => ['ClientesController@update', $cliente->id]]) !!}

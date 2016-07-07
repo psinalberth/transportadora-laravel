@@ -30,7 +30,7 @@
         <div class="panel-heading">
           <div class="row">
             <div class="col-xs-9">
-              <i class="fa fa-truck fa-5x" style="font-size: 7em"></i> 
+              <i class="fa fa-shopping-cart fa-5x" style="font-size: 7em"></i> 
             </div>
             <div class="col-xs-3 text-right">
               <div class="huge" style="font-size: 4em">{{$fretes}}</div>
