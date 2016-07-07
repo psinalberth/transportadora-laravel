@@ -14,8 +14,8 @@
 					<div class="xis">
 						<li>
 							<a href="{{action('FretesController@create')}}" style="color: inherit">
-								<i class="fa fa-shopping-cart pull-left fa-2x"></i>
-								<c><i class="fa fa-plus pull-left fa-2x"></i><c>
+								<i class="fa fa-shopping-cart pull-left fa-fw fa-2x"></i>
+								<c><i class="fa fa-plus pull-left fa-fw fa-2x"></i><c>
 							</a>
 						</li>
 					</div>

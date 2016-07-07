@@ -28,21 +28,21 @@ class MockeryTest extends TestCase {
 		$this->assertEquals(5, $clientes->count());
 	}
 
-	public function testGetClientes() {
+	/*public function testGetClientes() {
 
-		$clientes = $this->setUpMockery();
-		$clientes->shouldReceive('all')->once();
-		$this->call('GET', 'transportadora/clientes');
+$clientes = $this->setUpMockery();
+$clientes->shouldReceive('all')->once();
+$this->call('GET', 'transportadora/clientes');
 
-		$this->assertEquals(['Joao das Neves', 'Jose das Couves', 'Manolo Cabrero'], $clientes->all());
-	}
+$this->assertEquals(['Joao das Neves', 'Jose das Couves', 'Manolo Cabrero'], $clientes->all());
+}
 
-	public function testGetClientsPage() {
+public function testGetClientsPage() {
 
-		$clientes = $this->setUpMockery();
-		$clientes->shouldReceive('all')->once();
-		$this->call('GET', 'transportadora/clientes');
+$clientes = $this->setUpMockery();
+$clientes->shouldReceive('all')->once();
+$this->call('GET', 'transportadora/clientes');
 
-		$this->assertViewHas('clientes');
-	}
+$this->assertViewHas('clientes');
+}*/
 }
