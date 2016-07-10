@@ -15,7 +15,7 @@
 			</div>
 		</div>
 
-		{!! Form::open(['method' => 'POST', 'action' => 'ClientesController@store']) !!}
+		{!! Form::open(['method' => 'POST', 'action' => 'ClientesController@store', 'id' => 'clientes-form']) !!}
 
 			@include('clientes._form')
 

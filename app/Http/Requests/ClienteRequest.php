@@ -23,6 +23,7 @@ class ClienteRequest extends Request {
 		return [
 			'nome' => 'required',
 			'numero' => 'required',
+			'telefone' => 'required',
 			'endereco_id' => 'required'
 		];
 	}

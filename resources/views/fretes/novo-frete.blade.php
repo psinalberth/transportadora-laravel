@@ -12,7 +12,7 @@
 			</div>
 		</div>
 
-		{!! Form::open(['method' => 'POST', 'action' => 'FretesController@store']) !!}
+		{!! Form::open(['method' => 'POST', 'action' => 'FretesController@store', 'id' => 'fretes-form']) !!}
 
 			@include('fretes._form', $readonly = ['readonly' => 'false'])
 

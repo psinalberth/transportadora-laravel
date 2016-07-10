@@ -33,7 +33,7 @@
 		<div class="col-sm-3">
 			<div class="form-group">
 				{!! Form::label('cep', 'CEP:') !!}
-				{!! Form::text('cep', null, ['class' => 'form-control', 'maxlength' => 8]) !!}
+				{!! Form::text('cep', null, ['class' => 'form-control', 'maxlength' => 8, 'onkeypress' => 'return event.charCode >= 48 && event.charCode <= 57']) !!}
 			</div>
 		</div>
 
@@ -47,7 +47,7 @@
 		<div class="col-sm-2">
 			<div class="form-group">
 				{!! Form::label('numero', 'Número:') !!}
-				{!! Form::text('numero', null, ['class' => 'form-control']) !!}
+				{!! Form::text('numero', null, ['class' => 'form-control', 'onkeypress' => 'return event.charCode >= 48 && event.charCode <= 57']) !!}
 			</div>
 		</div>
 	</div>
@@ -86,13 +86,13 @@
 		<div class="col-sm-4">
 			<div class="form-group">
 				{!! Form::label('telefone', 'Telefone:') !!}
-				{!! Form::text('telefone', null, ['class' => 'form-control']) !!}
+				{!! Form::text('telefone', null, ['class' => 'form-control', 'onkeypress' => 'return event.charCode >= 48 && event.charCode <= 57']) !!}
 			</div>
 		</div>
 	</div>
 
 	<div class="modal-footer">
-		<input type="submit" class="btn btn-primary" label="Salvar"></input>
+		<input type="submit" class="btn btn-primary" value="Salvar" disabled="disabled"></input>
 	    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
 	</div>
 

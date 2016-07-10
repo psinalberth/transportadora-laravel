@@ -243,7 +243,7 @@
 	</div>
 
 	<div class="modal-footer">
-		<input type="submit" class="btn btn-primary" label="Salvar"></input>
+		<input type="submit" class="btn btn-primary" value="Salvar" disabled="disabled"></input>
 	    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
 	</div>
 

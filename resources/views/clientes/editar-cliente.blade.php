@@ -14,7 +14,7 @@
 			</div>
 		</div>
 
-		{!! Form::model($cliente, ['method' => 'PATCH', 'action' => ['ClientesController@update', $cliente->id]]) !!}
+		{!! Form::model($cliente, ['method' => 'PATCH', 'action' => ['ClientesController@update', $cliente->id], 'id' => 'clientes-form']) !!}
 
 			@include('clientes._form')
 

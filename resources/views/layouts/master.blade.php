@@ -8,6 +8,8 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
       <script type="text/javascript" src="/js/custom.js"></script>
+      <script type="text/javascript" src="/js/validation.js"></script>
+      <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
       <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyB_5mWADgj7N_Q2OfgRh1IJUp0i0sh3H7M"></script>
   </head>
   <body>
