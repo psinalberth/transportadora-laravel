@@ -14,7 +14,7 @@
 			</div>
 		</div>
 
-		{!! Form::model($frete, ['id' => 'fretes-form')] !!}
+		{!! Form::model($frete, ['id' => 'fretes-form']) !!}
 
 			@include('fretes._form', $readonly = ['readonly' => 'readonly'])
 

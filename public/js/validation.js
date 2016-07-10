@@ -105,7 +105,7 @@ $(document).ready(function() {
 			}
 		}
 	});
-	$('#fretes-form input').on('keyup blur change', function() {
+	$('#fretes-form input').on('keyup blur change init', function() {
 
 		if ($('#fretes-form').valid()) {
 			$('input.btn.btn-primary').prop('disabled', false);

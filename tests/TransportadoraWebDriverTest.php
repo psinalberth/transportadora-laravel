@@ -9,8 +9,11 @@ use Facebook\WebDriver\WebDriverBy;
 use Facebook\WebDriver\WebDriverSelect;
 use Facebook\WebDriver\WebDriverWait;
 use Facebook\WebDriver\WebDriverExpectedCondition;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class TransportadoraWebDriverTest extends PHPUnit_Framework_TestCase {
+
+	use DatabaseMigrations;
 
 	private $webdriver;
 
@@ -22,7 +25,7 @@ class TransportadoraWebDriverTest extends PHPUnit_Framework_TestCase {
 		$this->webdriver->quit();
 	}
 
-	/*public function testGoToHomePage() {
+	public function testGoToHomePage() {
 		
 		$homePage = new HomePage($this->webdriver);
 		$homePage->visit();
@@ -42,14 +45,15 @@ class TransportadoraWebDriverTest extends PHPUnit_Framework_TestCase {
 
 		$clientesPage = new ClientesPage($this->webdriver);
 		$clientesPage->visit();
+		
 		$this->webdriver->findElement(WebDriverBy::xpath("//a[@href='http://localhost:8000/transportadora/clientes/create']"))->click();
+		
 		$clientesPage->fillForm();
-
-		$submit = $this->webdriver->findElement(WebDriverBy::cssSelector('.btn.btn-primary'));
 
 		$this->webdriver->wait(10, 5000)->until(WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::cssSelector('.btn.btn-primary')));
 
-		$submit->click();
+		$submitButton = $this->webdriver->findElement(WebDriverBy::cssSelector('.btn.btn-primary'));
+		$submitButton->click();
 	}
 
 	public function testDeleteCliente() {
@@ -57,19 +61,16 @@ class TransportadoraWebDriverTest extends PHPUnit_Framework_TestCase {
 		$clientesPage = new ClientesPage($this->webdriver);
 		$clientesPage->visit();
 
-		$button = $this->webdriver->findElement(WebDriverBy::cssSelector('.fa.fa-trash-o'));
-		$button->click();
-
-		$submit = $this->webdriver->findElement(WebDriverBy::cssSelector('.btn.btn-primary'));
+		$deleteButton = $this->webdriver->findElement(WebDriverBy::cssSelector('.fa.fa-trash-o'));
+		$deleteButton->click();
 
 		$this->webdriver->wait(10, 5000)->until(WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::cssSelector('.btn.btn-primary')));
 
-		$submit->click();
+		$submitButton = $this->webdriver->findElement(WebDriverBy::cssSelector('.btn.btn-primary'));
+		$submitButton->click();
+	}
 
-		$this->webdriver->wait(10, 5000);
-	}*/
-
-	public function testSSSS() {
+	public function testCreateFrete() {
 
 		$fretesPage = new FretesPage($this->webdriver);
 		$fretesPage->visit();
@@ -78,9 +79,9 @@ class TransportadoraWebDriverTest extends PHPUnit_Framework_TestCase {
 
 		$fretesPage->fillForm();
 
-		$submit = $this->webdriver->findElement(WebDriverBy::cssSelector('.btn.btn-primary'));
+		$this->webdriver->wait(10, 10000)->until(WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::cssSelector('.btn.btn-primary')));
 
-		$this->webdriver->wait(10, 5000)->until(WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::cssSelector('.btn.btn-primary')));
-
+		$submitButton = $this->webdriver->findElement(WebDriverBy::cssSelector('.btn.btn-primary'));
+		$submitButton->click();
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 
-class EndpointsTest extends TestCase {
+class TransportadoraEndpointsTest extends TestCase {
 
 	public function testMustAccessHomePage() {
 
@@ -14,6 +14,13 @@ class EndpointsTest extends TestCase {
 		$this->visit('/transportadora')
 		     ->click('Clientes')
 		     ->seePageIs('/transportadora/clientes');
+	}
+
+	public function testGetReponse() {
+
+		$response = $this->call('GET', '/transportadora/clientes');
+
+		$this->assertEquals(200, $response->getStatusCode());
 	}
 
 	public function testMustGetCepAsJsonObject() {
