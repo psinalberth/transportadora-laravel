@@ -93,7 +93,7 @@
 
 	<div class="modal-footer">
 		<input type="submit" class="btn btn-primary" value="Salvar" disabled="disabled"></input>
-	    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+		<a href="{{action('ClientesController@index')}}" class="btn btn-default">Cancelar</a>
 	</div>
 
 </div>
