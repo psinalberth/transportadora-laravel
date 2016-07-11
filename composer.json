@@ -21,7 +21,12 @@
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "2.8.*|3.0.*",
         "phpunit/phpunit-selenium": "^2.0",
-        "facebook/webdriver": "^1.1"
+        "facebook/webdriver": "^1.1",
+        "phpmd/phpmd": "^2.4",
+        "phploc/phploc": "^3.0",
+        "pdepend/pdepend": "^2.2",
+        "sebastian/phpcpd": "^2.0",
+        "squizlabs/php_codesniffer": "^2.6"
     },
     "autoload": {
         "classmap": [
