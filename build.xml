@@ -71,7 +71,7 @@
         </exec>
     </target>
 
-    <target name="lint" unless="lint.done" description="Perform syntax check of sourcecode files">
+    <target name="lint" unless="lint.done" description="Perform syntax check of sourcecode files" depends="composer">
         <apply executable="php" failonerror="true" taskname="lint">
             <arg value="-l"/>
             <fileset dir="${basedir}/app">
