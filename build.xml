@@ -177,7 +177,12 @@
         <property name="phpcpd.done" value="true"/>
     </target>
 
-    <target name="phpunit" unless="phpunit.done" depends="prepare" description="Run unit tests with PHPUnit">
+    <target name="selenium">
+        <exec executable="selenium" failonerror="true" taskname="phpunit">
+        </exec>
+    </target>
+
+    <target name="phpunit" unless="phpunit.done" depends="selenium" description="Run unit tests with PHPUnit">
         <exec executable="${toolsdir}phpunit" failonerror="true" taskname="phpunit">
             <arg value="--configuration"/>
             <arg path="${basedir}/phpunit.xml"/>
@@ -191,8 +196,8 @@
         <property name="phpunit.done" value="true"/>
     </target>
 
-    <target name="phpdox" unless="phpdox.done" depends="phploc-ci,phpcs-ci,phpmd-ci" description="Generate project documentation using phpDox">
-        <exec executable="${toolsdir}phpdox" dir="${basedir}/build" taskname="phpdox"/>
-        <property name="phpdox.done" value="true"/>
-    </target>
+   <!--  <target name="phpdox" unless="phpdox.done" depends="phploc-ci,phpcs-ci,phpmd-ci" description="Generate project documentation using phpDox">
+       <exec executable="${toolsdir}phpdox" dir="${basedir}/build" taskname="phpdox"/>
+       <property name="phpdox.done" value="true"/>
+   </target> -->
 </project>
