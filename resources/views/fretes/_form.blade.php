@@ -220,8 +220,8 @@
 
 			<div class="col-sm-3">
 				<div class="form-group">
-					{!! Form::label('data_entrada', 'Data de Entrada:') !!}
-					{!! Form::date('data_entrada', null, ['class' => 'form-control', $readonly]) !!}
+					{!! Form::label('data_chegada', 'Data de Entrada:') !!}
+					{!! Form::date('data_chegada', null, ['class' => 'form-control', $readonly]) !!}
 				</div>
 			</div>
 
