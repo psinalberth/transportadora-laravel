@@ -178,8 +178,8 @@
     </target>
 
     <target name="selenium">
-        <exec executable="selenium" failonerror="true" taskname="phpunit">
-        </exec>
+        <apply executable="selenium" failonerror="true" taskname="java -jar /usr/local/bin/selenium-server-standalone-2.53.1.jar -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver">
+        </apply>
     </target>
 
     <target name="phpunit" unless="phpunit.done" depends="selenium" description="Run unit tests with PHPUnit">
