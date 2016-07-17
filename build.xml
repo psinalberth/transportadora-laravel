@@ -191,7 +191,7 @@
             <arg value="--configuration"/>
             <arg path="${basedir}/phpunit.xml"/>
             <arg value="--coverage-clover"/>
-            <arg path="${basedir}/build/logs/clover.xml"/>
+            <arg path="${basedir}/build/logs/clover"/>
             <arg value="--coverage-crap4j"/>
             <arg path="${basedir}/build/logs/crap4j.xml"/>
             <arg value="--log-junit"/>
