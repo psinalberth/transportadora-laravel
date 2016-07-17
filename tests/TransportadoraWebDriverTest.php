@@ -41,7 +41,7 @@ class TransportadoraWebDriverTest extends PHPUnit_Framework_TestCase {
 		$this->webdriver->findElement(WebDriverBy::linkText('Clientes'))->click();
 	}
 
-	public function testCreateCliente() {
+	/*public function testCreateCliente() {
 
 		$clientesPage = new ClientesPage($this->webdriver);
 		$clientesPage->visit();
@@ -83,5 +83,5 @@ class TransportadoraWebDriverTest extends PHPUnit_Framework_TestCase {
 
 		$submitButton = $this->webdriver->findElement(WebDriverBy::cssSelector('.btn.btn-primary'));
 		$submitButton->click();
-	}
+	}*/
 }
