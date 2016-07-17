@@ -177,15 +177,6 @@
         <property name="phpcpd.done" value="true"/>
     </target>
 
-    <!-- <target name="selenium">
-        <exec executable="java" failonerror="true" taskname="selenium">
-            <arg value="-jar"/>
-            <arg path="/usr/local/bin/selenium-server-standalone-2.53.1.jar"/>
-            <arg value="-Dwebdriver.chrome.driver="/>
-            <arg path="/usr/local/bin/chromedriver"/>
-        </exec>
-    </target> -->
-
     <target name="phpunit" unless="phpunit.done" description="Run unit tests with PHPUnit">
         <exec executable="${toolsdir}phpunit" failonerror="true" taskname="phpunit">
             <arg value="--configuration"/>

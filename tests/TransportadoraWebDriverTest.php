@@ -19,6 +19,8 @@ class TransportadoraWebDriverTest extends PHPUnit_Framework_TestCase {
 
 	public function setUp() {
 		$this->webdriver = RemoteWebDriver::create('http://localhost:4444/wd/hub', DesiredCapabilities::chrome());
+		$this->webdriver->manage()->window()->maximize();
+		// $this->webdriver->switchTo()->window(end($this->webdriver->getWindowHandles()));
 	}
 
 	public function tearDown() {
@@ -41,7 +43,7 @@ class TransportadoraWebDriverTest extends PHPUnit_Framework_TestCase {
 		$this->webdriver->findElement(WebDriverBy::linkText('Clientes'))->click();
 	}
 
-	/*public function testCreateCliente() {
+	public function testCreateCliente() {
 
 		$clientesPage = new ClientesPage($this->webdriver);
 		$clientesPage->visit();
@@ -50,7 +52,7 @@ class TransportadoraWebDriverTest extends PHPUnit_Framework_TestCase {
 		
 		$clientesPage->fillForm();
 
-		$this->webdriver->wait(10, 5000)->until(WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::cssSelector('.btn.btn-primary')));
+		$this->webdriver->wait(10, 8000)->until(WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::cssSelector('.btn.btn-primary')));
 
 		$submitButton = $this->webdriver->findElement(WebDriverBy::cssSelector('.btn.btn-primary'));
 		$submitButton->click();
@@ -70,7 +72,7 @@ class TransportadoraWebDriverTest extends PHPUnit_Framework_TestCase {
 		$submitButton->click();
 	}
 
-	public function testCreateFrete() {
+	/*public function testCreateFrete() {
 
 		$fretesPage = new FretesPage($this->webdriver);
 		$fretesPage->visit();
