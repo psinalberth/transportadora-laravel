@@ -91,7 +91,7 @@ return [
 	|
 	 */
 
-	'key' => env('8NcwIQDAKA5NdycAeCULSsWTl3gNAVZr81jTDNbu7JU='),
+	'key' => env('HaazraLaravel'),
 
 	'cipher' => 'AES-256-CBC',
 
