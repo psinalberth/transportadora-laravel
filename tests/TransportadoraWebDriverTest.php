@@ -20,7 +20,7 @@ class TransportadoraWebDriverTest extends PHPUnit_Framework_TestCase {
 	public function setUp() {
 		$this->webdriver = RemoteWebDriver::create('http://localhost:4444/wd/hub', DesiredCapabilities::chrome());
 		$this->webdriver->manage()->window()->maximize();
-		// $this->webdriver->switchTo()->window(end($this->webdriver->getWindowHandles()));
+		// $this->webdriver->switchTo()->window(end($this->webdriver->getWindowHandles()));//
 	}
 
 	public function tearDown() {
